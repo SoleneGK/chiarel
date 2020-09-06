@@ -19,12 +19,12 @@ class Tag
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", unique=true)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", unique=true)
      * @Gedmo\Slug(fields={"name"}, updatable=false)
      */
     private $slug;
