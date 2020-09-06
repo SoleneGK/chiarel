@@ -25,3 +25,21 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    admin.technique:
+        class: App\Admin\TechniqueAdmin
+        arguments: [~, App\Entity\Technique, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Catégories', label: Techniques }
+
+    admin.tag:
+        class: App\Admin\TagAdmin
+        arguments: [~, App\Entity\Tag, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Catégories', label: Tags }
+
+    admin.series:
+        class: App\Admin\SeriesAdmin
+        arguments: [~, App\Entity\Series, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Catégories', label: Séries }
