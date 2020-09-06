@@ -1,0 +1,176 @@
+<?php
+
+namespace App\Admin;
+
+use App\Entity\Tag;
+use App\Entity\Series;
+use App\Entity\Technique;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+final class PhotoAdmin extends AbstractAdmin
+{
+	protected function configureFormFields(FormMapper $form)
+	{
+		$form
+			->with('Photo')
+				->add('title', TextType::class, [
+					'label' => 'Titre',
+				])
+				->add('file_name', TextType::class, [
+					'label' => 'Nom de l\'image (temp)',
+				])
+				->add('description', TextareaType::class, [
+					'label' => 'Description',
+					'required' => false,
+				])
+			->end()
+			->with('Métadonnées')
+				->add('series', ModelType::class, [
+					'class' => Series::class,
+					'property' => 'name',
+					'label' => 'Série',
+					'required' => false,
+				])
+				->add('technique', ModelType::class, [
+					'class' => Technique::class,
+					'property' => 'name',
+					'label' => 'Technique',
+					'required' => false,
+				])
+				->add('creation_date', DateType::class, [
+					'widget' => 'single_text',
+					'label' => 'Date de création',
+					'required' => false,
+				])
+				->add('height', NumberType::class, [
+					'label' => 'Hauteur (en cm)',
+					'required' => false,
+				])
+				->add('width', NumberType::class, [
+					'label' => 'Largeur (en cm)',
+					'required' => false,
+				])
+				->add('tags', ModelType::class, [
+					'class' => Tag::class,
+					'property' => 'name',
+					'multiple' => true,
+					'required' => false,
+					'label' => 'Tags',
+				])
+			->end()
+			->with('Publication')
+				->add('active', CheckboxType::class, [
+					'label' => 'Publier la photo',
+					'required' => false,
+				])
+			->end()
+		;
+	}
+
+	protected function configureDatagridFilters(DatagridMapper $filter)
+	{
+		$filter
+			->add('title')
+			->add('series')
+			->add('tags')
+			->add('active')
+		;
+	}
+
+	protected function configureListFields(ListMapper $list)
+	{
+		$list
+			->add('file_name', null, [
+				'label' => 'Image',
+			])
+			->addIdentifier('title', null, [
+				'label' => 'Titre',
+				'route' => [
+					'name' => 'show',
+				],
+			])
+			->add('series', null, [
+				'label' => 'Série',
+				'route' => [
+					'name' => 'show',
+				],
+			])
+			->add('tags', null, [
+				'label' => 'Tags',
+				'route' => [
+					'name' => 'show',
+				],
+			])
+			->add('active', null, [
+				'label' => 'Publié',
+				'editable' => true,
+			])
+			->add('_action', null, [
+				'actions' => [
+					'edit' => []
+				],
+			])
+		;
+	}
+
+	protected function configureShowFields(ShowMapper $show)
+	{
+		$show
+			->with('Photo')
+				->add('file_name', null, [
+					'label' => 'Image',
+				])
+				->add('title', 'string', [
+					'label' => 'Titre',
+				])
+				->add('description', 'string', [
+					'label' => 'Description',
+				])
+			->end()
+			->with('Médadonnées')
+				->add('series', null, [
+					'label' => 'Série',
+					'route' => [
+						'name' => 'show',
+					],
+				])
+				->add('technique', null, [
+					'label' => 'Technique',
+					'route' => [
+						'name' => 'show',
+					],
+				])
+				->add('creation_date', null, [
+					'label' => 'Date de création',
+				])
+				->add('height', null, [
+					'label' => 'Hauteur (en cm)',
+				])
+				->add('width', null, [
+					'label' => 'Largeur (en cm)',
+				])
+				->add('tags', null, [
+					'label' => 'Tags',
+					'route' => [
+						'name' => 'show',
+					],
+				])
+			->end()
+			->with('Publication')
+				->add('active', null, [
+					'label' => 'Publié',
+				])
+			->end()
+		;
+	}
+}
