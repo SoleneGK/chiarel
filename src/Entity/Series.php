@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SeriesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -29,6 +31,16 @@ class Series
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="series")
+     */
+    private $photos;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Cyano::class, mappedBy="series")
+     */
+    private $cyanos;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +66,68 @@ class Series
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Photo[]
+     */
+    public function getPhotos(): Collection
+    {
+        return $this->photos;
+    }
+
+    public function addPhoto(Photo $photo): self
+    {
+        if (!$this->photos->contains($photo)) {
+            $this->photos[] = $photo;
+            $photo->setSeries($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Photo $photo): self
+    {
+        if ($this->photos->contains($photo)) {
+            $this->photos->removeElement($photo);
+            // set the owning side to null (unless already changed)
+            if ($photo->getSeries() === $this) {
+                $photo->setSeries(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cyano[]
+     */
+    public function getCyanos(): Collection
+    {
+        return $this->cyanos;
+    }
+
+    public function addCyano(Cyano $cyano): self
+    {
+        if (!$this->cyanos->contains($cyano)) {
+            $this->cyanos[] = $cyano;
+            $cyano->setSeries($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCyano(Cyano $cyano): self
+    {
+        if ($this->cyanos->contains($cyano)) {
+            $this->cyanos->removeElement($cyano);
+            // set the owning side to null (unless already changed)
+            if ($cyano->getSeries() === $this) {
+                $cyano->setSeries(null);
+            }
+        }
 
         return $this;
     }

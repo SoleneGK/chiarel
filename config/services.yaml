@@ -25,6 +25,17 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    admin.cyano:
+        class: App\Admin\CyanoAdmin
+        arguments: [~, App\Entity\Cyano, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Œuvres',label: Cyanos }
+
+    admin.photo:
+        class: App\Admin\PhotoAdmin
+        arguments: [~, App\Entity\Photo, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Œuvres', label: Photos }
 
     admin.technique:
         class: App\Admin\TechniqueAdmin
