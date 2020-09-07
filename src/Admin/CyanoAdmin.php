@@ -24,11 +24,11 @@ final class CyanoAdmin extends AbstractAdmin
 	{
 		$form
 			->with('Cyano')
+				->add('file', FileType::class, [
+					'required' => false,
+				])
 				->add('title', TextType::class, [
 					'label' => 'Titre',
-				])
-				->add('file_name', TextType::class, [
-					'label' => 'Nom de l\'image (temp)',
 				])
 				->add('description', TextareaType::class, [
 					'label' => 'Description',
