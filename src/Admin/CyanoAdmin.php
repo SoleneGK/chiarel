@@ -105,6 +105,7 @@ final class CyanoAdmin extends AbstractAdmin
 		$list
 			->add('file_name', null, [
 				'label' => 'Image',
+				'template' => 'custom-sonata/list_image.html.twig',
 			])
 			->addIdentifier('title', null, [
 				'label' => 'Titre',

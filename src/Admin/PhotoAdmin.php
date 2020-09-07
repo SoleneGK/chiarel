@@ -101,6 +101,7 @@ final class PhotoAdmin extends AbstractAdmin
 		$list
 			->add('file_name', null, [
 				'label' => 'Image',
+				'template' => 'custom-sonata/list_image.html.twig',
 			])
 			->addIdentifier('title', null, [
 				'label' => 'Titre',
@@ -136,8 +137,9 @@ final class PhotoAdmin extends AbstractAdmin
 	{
 		$show
 			->with('Photo')
-				->add('file_name', null, [
+				->add('image', null, [
 					'label' => 'Image',
+					'template' => '@App/custom-sonata/list_image.html.twig'
 				])
 				->add('title', 'string', [
 					'label' => 'Titre',
