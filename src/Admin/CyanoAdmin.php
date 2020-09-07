@@ -141,8 +141,9 @@ final class CyanoAdmin extends AbstractAdmin
 	{
 		$show
 			->with('Cyano')
-				->add('file_name', null, [
+				->add('image', null, [
 					'label' => 'Image',
+					'template' => 'custom-sonata/show_image.html.twig'
 				])
 				->add('title', 'string', [
 					'label' => 'Titre',

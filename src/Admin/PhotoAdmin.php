@@ -139,7 +139,7 @@ final class PhotoAdmin extends AbstractAdmin
 			->with('Photo')
 				->add('image', null, [
 					'label' => 'Image',
-					'template' => '@App/custom-sonata/list_image.html.twig'
+					'template' => 'custom-sonata/show_image.html.twig'
 				])
 				->add('title', 'string', [
 					'label' => 'Titre',
