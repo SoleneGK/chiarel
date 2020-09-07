@@ -26,7 +26,7 @@ abstract class Image
     protected $image_sizes = [
         'thumbnail' => 90,
     ];
-    
+
 	/**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -375,7 +375,7 @@ abstract class Image
 
         imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_dimensions['width'], $new_dimensions['height'], $source_dimensions['width'], $source_dimensions['height']);
 
-        $destination_folder = 'images/'.$size_name.'/';
+        $destination_folder = './images/'.$size_name.'/';
         $this->createNewImageFile($new_image, $destination_folder, $extension);
     }
 
