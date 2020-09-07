@@ -14,6 +14,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -23,11 +24,11 @@ final class PhotoAdmin extends AbstractAdmin
 	{
 		$form
 			->with('Photo')
+				->add('file', FileType::class, [
+					'required' => false,
+				])
 				->add('title', TextType::class, [
 					'label' => 'Titre',
-				])
-				->add('file_name', TextType::class, [
-					'label' => 'Nom de l\'image (temp)',
 				])
 				->add('description', TextareaType::class, [
 					'label' => 'Description',
@@ -80,10 +81,18 @@ final class PhotoAdmin extends AbstractAdmin
 	protected function configureDatagridFilters(DatagridMapper $filter)
 	{
 		$filter
-			->add('title')
-			->add('series')
-			->add('tags')
-			->add('active')
+			->add('title', null, [
+				'label' => 'Titre',
+			])
+			->add('series', null, [
+				'label' => 'Série',
+			])
+			->add('tags', null, [
+				'label' => 'Tags',
+			])
+			->add('active', null, [
+				'label' => 'Publié',
+			])
 		;
 	}
 
@@ -172,5 +181,22 @@ final class PhotoAdmin extends AbstractAdmin
 				])
 			->end()
 		;
+	}
+
+	public function prePersist($image)
+	{
+		$this->manageFileUpload($image);
+	}
+
+	public function preUpdate($image)
+	{
+		$this->manageFileUpload($image);
+	}
+
+	private function manageFileUpload($image)
+	{
+		if ($image->getFile()) {
+			$image->refreshUpdated();
+		}
 	}
 }

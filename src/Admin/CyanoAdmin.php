@@ -85,10 +85,18 @@ final class CyanoAdmin extends AbstractAdmin
 	protected function configureDatagridFilters(DatagridMapper $filter)
 	{
 		$filter
-			->add('title')
-			->add('series')
-			->add('tags')
-			->add('active')
+			->add('title', null, [
+				'label' => 'Titre',
+			])
+			->add('series', null, [
+				'label' => 'Série',
+			])
+			->add('tags', null, [
+				'label' => 'Tags',
+			])
+			->add('active', null, [
+				'label' => 'Publié',
+			])
 		;
 	}
 
