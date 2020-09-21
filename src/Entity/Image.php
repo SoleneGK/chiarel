@@ -35,17 +35,17 @@ abstract class Image
 	protected $id;
 
 	/**
-     * @ORM\Column(type="text", unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $file_name;
 	
 	/**
-	 * @ORM\Column(type="text", unique=true)
+	 * @ORM\Column(type="string", length=180, unique=true)
 	 */
 	protected $title;
 	
 	/**
-	 * @ORM\Column(type="text", unique=true)
+	 * @ORM\Column(type="string", length=180, unique=true)
 	 * @Gedmo\Slug(fields={"title"}, updatable=false)
      */
 	private $slug;
