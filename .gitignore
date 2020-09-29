@@ -8,4 +8,5 @@
 /public/images/
 /var/
 /vendor/
+/.vscode/
 ###< symfony/framework-bundle ###

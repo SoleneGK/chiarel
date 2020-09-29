@@ -1,20 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<header>
+    <div>
+        <img src="{{ asset('images/logos/logo_homepage.png') }}" alt="Logo Chiarel">
+    </div>
+    <h1>Les créations de Claire</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, excepturi.</p>
+</header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<main>
+    <section>
+        <div>
+            <div>
+                <img src="{{ asset('images/static_images/homepage_cyano.png') }}" alt="Exemple de cyanotype">
+            </div>
+            <div>
+                <h2>Cyanotypes</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, qui, numquam non quaerat omnis sunt doloremque blanditiis ipsa quod beatae dolorum exercitationem explicabo, atque tempora voluptatum! Nisi est officiis a dolores, earum numquam magnam temporibus totam animi cum excepturi commodi itaque eligendi, molestiae quibusdam asperiores rem. Iusto sequi consequuntur magni.
+                </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="{{ asset('images/static_images/homepage_photo.jpg') }}" alt="Exemple de photographie">
+            </div>
+            <div>
+                <h2>Photographies</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ullam id mollitia. Veniam dignissimos ut vel id harum repellat, numquam, inventore autem possimus debitis, sed dolore earum expedita aliquid! Assumenda quo, animi et illum doloribus dolores quis voluptate reiciendis expedita perferendis eius consequatur sapiente modi, mollitia nesciunt sed suscipit molestias!
+                </p>
+            </div>
+        </div>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'H:/Programmation/chiarel/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'H:/Programmation/chiarel/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section>
+        <h2>Présentation</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis autem, asperiores quibusdam et culpa tempore quas error perspiciatis. Esse sit laborum neque! Esse impedit nisi excepturi voluptatibus odio officiis. Laudantium assumenda ratione soluta error iste, amet exercitationem, saepe consectetur esse dicta cumque enim perferendis ea quae omnis voluptatem nam at explicabo quisquam iusto? Optio explicabo culpa rem aliquam, quaerat mollitia inventore illum quas blanditiis iure animi qui itaque provident nulla natus excepturi voluptatibus voluptas? Doloremque.
+        </p>
+    </section>
+</main>
+
+<footer>
+    <div>
+        <img src="{{ asset('/images/icons/instagram.svg') }}" width="40px" alt="Aller sur l'instagram de Chiarel">
+        <img src="{{ asset('/images/icons/twitter.svg') }}" width="40px" alt="Aller sur le twitter de Chiarel">
+        <img src="{{ asset('/images/icons/rss.svg') }}" width="40px" alt="Obtenir le flux rss de Chiarel">
+    </div>
+    <p>Chiarel @ Copyright 2020</p>
+</footer>
 {% endblock %}
