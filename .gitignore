@@ -8,5 +8,12 @@
 /public/images/
 /var/
 /vendor/
-/.vscode/
 ###< symfony/framework-bundle ###
+
+###> vscode config ###
+/.vscode/
+###< vscode config ###
+
+###> gulp ###
+/gulp/node_modules
+###< gulp ###
