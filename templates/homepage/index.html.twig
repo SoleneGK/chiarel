@@ -1,54 +1,79 @@
 {% extends 'base.html.twig' %}
 
+{% import "base.html.twig" as base %}
+
 {% block body %}
-<header>
-    <div>
-        <img src="{{ asset('images/logos/logo_homepage.png') }}" alt="Logo Chiarel">
-    </div>
-    <h1>Les créations de Claire</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, excepturi.</p>
-</header>
-
-<main>
-    <section>
-        <div>
-            <div>
-                <img src="{{ asset('images/static_images/homepage_cyano.png') }}" alt="Exemple de cyanotype">
-            </div>
-            <div>
-                <h2>Cyanotypes</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, qui, numquam non quaerat omnis sunt doloremque blanditiis ipsa quod beatae dolorum exercitationem explicabo, atque tempora voluptatum! Nisi est officiis a dolores, earum numquam magnam temporibus totam animi cum excepturi commodi itaque eligendi, molestiae quibusdam asperiores rem. Iusto sequi consequuntur magni.
-                </p>
-            </div>
+<div class="homepage-background text-lighter">
+    <header>
+        <div class="text-center">
+            <picture>
+                        <source media="(min-width: 789px)" srcset="{{ asset('images/logos/logo_homepage_w409px.png') }}">
+                        <img src="{{ asset('images/logos/logo_homepage_w105px.png') }}" alt="Logo Chiarel">
+                    </picture>
         </div>
-        <div>
-            <div>
-                <img src="{{ asset('images/static_images/homepage_photo.jpg') }}" alt="Exemple de photographie">
-            </div>
-            <div>
-                <h2>Photographies</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ullam id mollitia. Veniam dignissimos ut vel id harum repellat, numquam, inventore autem possimus debitis, sed dolore earum expedita aliquid! Assumenda quo, animi et illum doloribus dolores quis voluptate reiciendis expedita perferendis eius consequatur sapiente modi, mollitia nesciunt sed suscipit molestias!
-                </p>
-            </div>
+        <div class="homepage_title">
+            <h1>Les créations de Claire</h1>
+            <p class="subtitle">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, excepturi.</p>
         </div>
-    </section>
+    </header>
 
-    <section>
-        <h2>Présentation</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis autem, asperiores quibusdam et culpa tempore quas error perspiciatis. Esse sit laborum neque! Esse impedit nisi excepturi voluptatibus odio officiis. Laudantium assumenda ratione soluta error iste, amet exercitationem, saepe consectetur esse dicta cumque enim perferendis ea quae omnis voluptatem nam at explicabo quisquam iusto? Optio explicabo culpa rem aliquam, quaerat mollitia inventore illum quas blanditiis iure animi qui itaque provident nulla natus excepturi voluptatibus voluptas? Doloremque.
-        </p>
-    </section>
-</main>
+    <main>
+        <section>
+            <div class="homepage-cyano">
+                <div class="homepage-img">
+                    <picture>
+                        <source media="(min-width: 789px)" srcset="{{ asset('images/static_images/homepage_cyano_w789px.jpg') }}">
+                        <source media="(min-width: 500px)" srcset="{{ asset('images/static_images/homepage_cyano_w500px.jpg') }}">
+                        <img src="{{ asset('images/static_images/homepage_cyano_w375px.jpg') }}" alt="Exemple de cyanotype">
+                    </picture>
+                </div>
+                <div class="homepage-description-wrapper">
+                    <div class="homepage-section-description bg-white">
+                        <h2>Cyanotypes</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, qui, numquam non quaerat omnis sunt doloremque blanditiis ipsa quod beatae dolorum exercitationem explicabo, atque tempora voluptatum! Nisi est officiis a dolores, earum numquam magnam temporibus totam animi cum excepturi commodi itaque eligendi, molestiae quibusdam asperiores rem. Iusto sequi consequuntur magni.
+                        </p>
+                        <div class="homepage-button">
+                            <a href="{{ path('cyanos_display_all') }}">
+                                <button>Découvrir</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="homepage-photo">
+                <div class="homepage-img">
+                    <picture>
+                        <source media="(min-width: 789px)" srcset="{{ asset('images/static_images/homepage_photo_w789px.jpg') }}">
+                        <source media="(min-width: 500px)" srcset="{{ asset('images/static_images/homepage_photo_w500px.jpg') }}">
+                        <img src="{{ asset('images/static_images/homepage_photo_w375px.jpg') }}" alt="Exemple de photographie">
+                    </picture>
 
-<footer>
-    <div>
-        <img src="{{ asset('/images/icons/instagram.svg') }}" width="40px" alt="Aller sur l'instagram de Chiarel">
-        <img src="{{ asset('/images/icons/twitter.svg') }}" width="40px" alt="Aller sur le twitter de Chiarel">
-        <img src="{{ asset('/images/icons/rss.svg') }}" width="40px" alt="Obtenir le flux rss de Chiarel">
-    </div>
-    <p>Chiarel @ Copyright 2020</p>
-</footer>
+                </div>
+                <div class="homepage-description-wrapper">
+                    <div class="homepage-section-description bg-white">
+                        <h2>Photographies</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ullam id mollitia. Veniam dignissimos ut vel id harum repellat, numquam, inventore autem possimus debitis, sed dolore earum expedita aliquid! Assumenda quo, animi et illum doloribus dolores quis voluptate reiciendis expedita perferendis eius consequatur sapiente modi, mollitia nesciunt sed suscipit molestias!
+                        </p>
+                        <div class="d-flex flex-row-reverse flex-md-row">
+                            <a href="{{ path('photos_display_all') }}">
+                                <button>Découvrir</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="homepage-presentation text-white">
+            <h2>Présentation</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis autem, asperiores quibusdam et culpa tempore quas error perspiciatis. Esse sit laborum neque! Esse impedit nisi excepturi voluptatibus odio officiis. Laudantium assumenda ratione soluta error iste, amet exercitationem, saepe consectetur esse dicta cumque enim perferendis ea quae omnis voluptatem nam at explicabo quisquam iusto? Optio explicabo culpa rem aliquam, quaerat mollitia inventore illum quas blanditiis iure animi qui itaque provident nulla natus excepturi voluptatibus voluptas? Doloremque.
+            </p>
+        </section>
+    </main>
+
+    {{ base.display_footer() }}
+</div>
 {% endblock %}

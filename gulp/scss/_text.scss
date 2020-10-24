@@ -1,0 +1,69 @@
+body
+{
+	font-family: 'Lato', serif;
+	font-size: 12px;
+	letter-spacing: -0.015em;
+}
+
+h1,
+h2,
+.subtitle
+{
+	font-family: 'Gabriela', serif;
+}
+
+h1
+{
+	color: $color-title;
+	text-shadow: 0px 1px 1px $color-title-effect;
+	font-size: 24px;
+}
+
+.subtitle
+{
+	color: $color-title;
+	text-shadow: 0px 1px 1px $color-title-effect;
+	font-size: 14px;
+}
+
+.text-darker
+{
+	color: $color-text-darker;
+}
+
+.text-lighter
+{
+	color: $color-text-lighter;
+}
+
+.text-white
+{
+	color: $color-title;
+}
+
+@media all and (min-width: 789px)
+{
+	body
+	{
+		font-size: 18px;
+	}
+
+	h1
+	{
+		font-size: 64px;
+		line-height: 82px;
+		text-shadow: 0 2px 4px $color-title-effect;
+	}
+
+	.subtitle
+	{
+		font-size: 36px;
+		line-height: 43px;
+		text-shadow: 0 2px 4px $color-title-effect;
+	}
+
+	h2
+	{
+		font-size: 24px;
+	}
+}
