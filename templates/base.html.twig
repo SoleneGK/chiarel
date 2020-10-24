@@ -2,12 +2,39 @@
 <html>
     <head>
         <meta charset="UTF-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <title>{% block title %}Chiarel{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        {% block stylesheets %}{% endblock %}
+
+        <link href="https://fonts.googleapis.com/css2?family=Gabriela&family=Lato&display=swap" rel="stylesheet">
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+
+
+{% macro display_menu_side() %}
+
+
+{% endmacro display_menu_side %}
+
+
+{% macro display_footer() %}
+
+<footer>
+    <div class="d-flex justify-content-around social-network">
+        <div>{{ source('/icons/instagram.svg') }}</div>
+        <div>{{ source('/icons/twitter.svg') }}</div>
+        <div>{{ source('/icons/rss.svg') }}</div>
+    </div>
+    <p>Chiarel @ Copyright 2020</p>
+    <div class="footer-menu">{{ source('/icons/menu_burger.svg') }}</div>
+</footer>
+
+{% endmacro display_footer %}

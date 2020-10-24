@@ -1,0 +1,50 @@
+footer
+{
+	text-align: center;
+	padding-bottom: 70px;
+
+	.social-network
+	{
+		width: 200px;
+		margin: auto;
+		
+		div
+		{
+			height: 40px;
+			width: 40px;
+		}
+	}	
+
+	svg path
+	{
+		fill: $color-icons;
+	}
+
+	p
+	{
+		padding: 20px;
+		margin-bottom: 0;
+	}
+
+	.footer-menu
+	{
+		width: 55px;
+		height: 55px;
+		position: fixed;
+		bottom: 15px;
+		right: 20px;
+	}
+}
+
+@media all and (min-width: 789px)
+{
+	footer
+	{
+		padding-bottom: 10px;
+	}
+
+	.footer-menu
+	{
+		display: none;
+	}
+}
