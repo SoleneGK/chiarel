@@ -3,7 +3,12 @@ header
 	padding: 0 15px;
 	margin-bottom: 40px;
 
-	div img
+	div:first-child
+	{
+		text-align: center;
+	}
+
+	img
 	{
 		width: 105px;
 	}
@@ -11,7 +16,7 @@ header
 
 @media all and (min-width: 789px)
 {
-	header div img
+	header img
 	{
 		width: 409px;
 	}

@@ -3,12 +3,16 @@ footer
 	text-align: center;
 	padding-bottom: 70px;
 
-	.social-network
+	ul
 	{
+		padding: 0;
 		width: 200px;
 		margin: auto;
+		display: flex;
+		justify-content: space-around;
+		list-style: none;
 		
-		div
+		li
 		{
 			height: 40px;
 			width: 40px;
@@ -26,7 +30,7 @@ footer
 		margin-bottom: 0;
 	}
 
-	.footer-menu
+	div
 	{
 		width: 55px;
 		height: 55px;
@@ -41,10 +45,10 @@ footer
 	footer
 	{
 		padding-bottom: 10px;
-	}
 
-	.footer-menu
-	{
-		display: none;
+		div
+		{
+			display: none;
+		}
 	}
 }
