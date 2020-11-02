@@ -15,7 +15,7 @@ function compileScss(cb) {
 	return src(scss_file_to_compile_path)
 		.pipe(sass())
 		.pipe(postcss([ autoprefixer() ]))
-//		.pipe(cleanCss())
+		.pipe(cleanCss())
 		.pipe(dest(css_dest_file_path));
 }
 
