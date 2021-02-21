@@ -1,33 +1,46 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{% block title %}Log in!{% endblock %}
+    <title>Chiarel Administration - Login</title>
 
-{% block body %}
-<form method="post" class="w-25 mx-auto">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-16x16.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-32x32.png') }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-64x64.png') }}" sizes="64x64">
+</head>
+
+<body>
+    <form method="post" class="w-25 mx-auto">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1 class="h3 mb-3 font-weight-normal text-center pt-3">Chiarel Administration<br>Connexion requise</h1>
+        <label for="inputEmail">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <div class="text-center">
+            <button class="btn btn-lg btn-primary mt-3" type="submit">
+                Sign in
+            </button>
         </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    <div class="text-center">
-        <button class="btn btn-lg btn-primary mt-3" type="submit">
-            Sign in
-        </button>
-    </div>
-</form>
-{% endblock %}
+    </form>
+</body>
+</html>
