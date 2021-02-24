@@ -8,6 +8,31 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        form
+        {
+            padding-top: 50px;
+        }
+
+        form::before
+        {
+            display: block;
+            margin: auto;
+            background-image: url({{ absolute_url(asset("images/logos/logo_admin_login.png")) }});
+            height: 259px;
+            width: 362px;
+            content: "";
+            margin-bottom: 10px;
+        }
+
+        form h1
+        {
+            font-family: Gabriela;
+        }
+    </style>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-16x16.png') }}" sizes="16x16">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-32x32.png') }}" sizes="32x32">
@@ -26,7 +51,7 @@
             </div>
         {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal text-center pt-3">Chiarel Administration<br>Connexion requise</h1>
+        <h1 class="h3 mb-3 font-weight-normal text-center pt-3">Administration</h1>
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
         <label for="inputPassword">Password</label>
