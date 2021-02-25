@@ -7,4 +7,5 @@ button:focus
 {
 	outline: none;
 	border: 2px solid $color-text-darker;
+	filter: drop-shadow(0 6px 4px $color-icons)
 }
