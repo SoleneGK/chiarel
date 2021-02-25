@@ -1,0 +1,22 @@
+html,
+body
+{
+	height: 100%;
+}
+
+.main-background
+{
+	height: 100%;
+	background-image: url('../images/background/mobile/background_homepage_mobile.jpg');
+	background-size: cover;
+	background-color: $color-neutral-main;
+	background-repeat: repeat-y;
+}
+
+@media all and (min-width: 789px)
+{
+	.main-background
+	{
+		background-image: url('../images/background/desktop/background_homepage_desktop.jpg');
+	}
+}

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
    		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{% block title %}Chiarel{% endblock %}</title>
+        <title>{% block header_title %}Chiarel{% endblock %}</title>
 
         <!--
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -20,27 +20,40 @@
         <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-64x64.png') }}" sizes="64x64">
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="main-background text-lighter">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>
 
 
-{% macro display_menu_side() %}
+{% macro display_header(page_title) %}
+<header>
+    <div>
+        <a href="{{ path('homepage') }}">
+            <picture>
+                <source media="(min-width: 789px)" srcset="{{ asset('images/logos/logo_homepage_w409px.png') }}">
+                <img src="{{ asset('images/logos/logo_homepage_w105px.png') }}" alt="Logo Chiarel">
+            </picture>
+        </a>
+    </div>
+    <div class="homepage_title">
+        <h1>{{ page_title }}</h1>
+        <p class="subtitle">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, excepturi.</p>
+    </div>
+</header>
+{% endmacro %}
 
-
-{% endmacro display_menu_side %}
 
 
 {% macro display_footer() %}
-
 <footer>
     <ul>
         <li><a href="https://www.instagram.com/chiara_chiarel/" alt="Instagram">{{ source('/icons/instagram.svg') }}</a></li>
         <li><a href="https://twitter.com/chiara_chiarel" alt="Twitter">{{ source('/icons/twitter.svg') }}</a></li>
         <li>{{ source('/icons/rss.svg') }}</li>
     </ul>
-    <p>Chiarel @ Copyright 2020 - <a href="{{ path('mentions-legales') }}">Mentions légales</a></p>
+    <p>Chiarel @ Copyright 2020 - <a href="{{ path('legal-terms') }}">Mentions légales</a></p>
     <div>{{ source('/icons/menu_burger.svg') }}</div>
 </footer>
-
 {% endmacro display_footer %}
